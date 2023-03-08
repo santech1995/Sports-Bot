@@ -1,0 +1,97 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_news_options
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_news_options
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_news_options
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+# - story: happy weather
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - action: utter_news_options
+#   - intent: weather
+#   - action: utter_city
+#   - intent: city_name
+#     entities:
+#       - city
+#   - action: action_weather_api
+
+- story: news options
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_news_options
+  - intent: weather
+    entities:
+      - news_option
+  - action: action_news_option
+  #   entities:
+  #     - news_option
+  - intent: weather
+  # - action: utter_weather_affirm
+  # - intent: affirm
+  - action: utter_city
+  - intent: city_name
+    entities:
+      - city
+  - action: action_weather_api
+
+
+# - story: news options weather
+#   steps:
+#   - checkpoint: check_option
+#   - intent: weather
+#   - action: utter_city
+#   - intent: city_name
+#     entities:
+#       - city
+#   - action: action_weather_api
+
+- story: news options sports
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_news_options
+  - intent: sports
+    entities:
+      - news_option
+  - action: action_news_option
+  - intent: sports
+    entities:
+      - game
+  - action: action_sports_news
+  
+  # - intent: city_name
+  #   entities:
+  #     - city
+  # - action: action_weather_api
+
+

@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-city",
+      "2": "I-city",
+      "3": "L-city",
+      "4": "U-city",
+      "5": "B-game",
+      "6": "I-game",
+      "7": "L-game",
+      "8": "U-game",
+      "9": "B-news_option",
+      "10": "I-news_option",
+      "11": "L-news_option",
+      "12": "U-news_option",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-city": 1,
+      "I-city": 2,
+      "L-city": 3,
+      "U-city": 4,
+      "B-game": 5,
+      "I-game": 6,
+      "L-game": 7,
+      "U-game": 8,
+      "B-news_option": 9,
+      "I-news_option": 10,
+      "L-news_option": 11,
+      "U-news_option": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]

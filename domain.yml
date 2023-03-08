@@ -1,0 +1,119 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - weather
+  - city_name
+  - option_name
+  - sports
+  - sport_name
+
+entities:
+  - city
+  - news_option
+  - news_options_weather
+  - news_options_sports
+  - game
+
+slots:
+  city:
+    type: categorical
+    values:
+      - santa clara
+      - sunnyvale
+      - san jose
+      - fremont
+      - milpitas
+      - san francisco
+      - san diego
+      - los angeles
+      - fresno
+      - sacramento
+      - oakland
+      - bakersfield
+      - hayward
+      - orange
+      - san mateo
+      - pleasanton
+      - mountain view
+      - dublin
+    mappings:
+    - type: from_entity
+      entity: city
+
+  news_option:
+    type: categorical
+    values:
+      - weather
+      - sports
+    mappings:
+    - type: from_entity
+      entity: news_option
+
+  game:
+    type: categorical
+    values:
+      - football
+      - baseball
+      - basketball
+      - soccer
+    mappings:
+    - type: from_entity
+      entity: game
+
+actions:
+  - action_weather_api
+  - action_sports_news
+  - action_news_option
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_weather_affirm:
+  - text: "So, do want to know about the weather?"
+
+  utter_city:
+  - text: "which city in California do you want to check weather for"
+
+  utter_temp:
+  - text: "today's temperature is {temp}"
+
+  utter_news_options:
+  - text: "welcome to the news desk! what is your field of interest? Sports or weather?"
+
+  utter_sport_name:
+  - text: "Please enter the name of the sport you are interested - Football or Baseball or basketball"
+
+# templates:
+#   utter_city:
+#   - text: "which city you want to check weather for"
+
+#   utter_temp:
+#   - text: "today's temperature is {temp}"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
